@@ -1,0 +1,18 @@
+{% extends 'web_general/components/base.html' %}
+{% load static %}
+{% block site_title %}Product{% endblock %}
+{% block content %}
+<section>
+    <div class="container">
+        <!-- loop ข้อมูลจาก products มาใส่ -->
+        {% for product in products %} 
+            <p>{{ product.name }}</p>
+            <p>{{product.image}}</p>
+            
+           
+
+        {% endfor %}
+
+    </div>
+</section>
+{% endblock %}

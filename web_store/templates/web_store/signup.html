@@ -1,0 +1,14 @@
+{% extends 'web_general/components/base.html' %}
+{% load static %}
+{% load humanize %}
+{% block site_title %}Sign up{% endblock %}
+{% block content %}
+<section class="content-wrapper">
+    <h1 align="center">แบบฟอร์มลงทะเบียน</h1>
+    <form  method="post">
+        {% csrf_token %}
+        {{form.as_p}}
+        <input type="submit" class="button btn-primary" value="Register">
+    </form>
+</section>
+{% endblock %}

@@ -1,0 +1,29 @@
+{% extends 'web_general/components/base.html' %}
+{% load static %}
+{% load humanize %}
+{% block site_title %}Cart{% endblock %}
+{% block content %}
+<section>
+  <div class="content-wrapper">
+    <section class="vh-100" style="background-color: #e9e9e9b5;">
+        {% if not orders %}
+           <div class="alert alert-danger" role="alert">
+            <p><span class="h2">ไม่มีสินค้าในตะกร้า </span><span class="h4">({{ counter }} item in your cart)</span></p>
+          </div>
+        {% else %}
+           <div>
+             <h2>ประวัติการซื้อ</h2>
+             <ul>
+             {% for order in orders %}
+               <li>Order ID: {{ order.id }}</li>
+               <li>Total: {{ order.total }}</li>
+               <li>Shipping Address: {{ order.address }}</li>
+               <br>
+             {% endfor %}
+             </ul>
+           </div>
+        {% endif %}
+      </section>
+  </div>
+</section>
+{% endblock %}

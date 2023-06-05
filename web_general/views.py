@@ -9,3 +9,4 @@ def home(request:HttpRequest):
 
 def about(request:HttpRequest):
     return render(request,'web_general/about.html')
+

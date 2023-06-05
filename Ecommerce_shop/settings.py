@@ -30,7 +30,10 @@ ALLOWED_HOSTS = []
 
 STATIC_URL = 'static/'
 MEDIA_URL = '/media/'
+PUBLIC_KEY = 'pk_test_51NFK05JqBizbNzBL99NIR1KHrMgfYObf1VRaa19Wu1SoBnoMrNALEgO9n4wKeYvUij0LCQPxbuhQTZGajlnZ0xcH009F72We4h'
+SECRET_KEY = 'sk_test_51NFK05JqBizbNzBL79BKUfpcDzpDTk9AVzH4HxiU7EejwqntyHGdmTxIt1gUpiHsI1FCg4LZjGE0TFYYXhehR2re00S8py6JkT'
 MEDIA_ROOT = os.path.join(BASE_DIR,'media/')
+
 
 
 
@@ -46,6 +49,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'web_general.apps.WebGeneralConfig',
     'web_store.apps.WebStoreConfig',
+    'django.contrib.humanize',
+    'stripe'
 ]
 
 MIDDLEWARE = [
@@ -71,6 +76,8 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'web_store.context_processors.Menu',
+                'web_store.context_processors.counter',
             ],
         },
     },
@@ -128,9 +135,11 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
-STATIC_URL = 'static/'
-MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR,'media/') 
+
+
+
+
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
